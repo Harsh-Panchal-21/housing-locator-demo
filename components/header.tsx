@@ -42,6 +42,12 @@ export function Header() {
           <Link href="/resources" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
             Resources
           </Link>
+          <Link href="/about" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            About
+          </Link>
+          <Link href="/contact" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            Contact
+          </Link>
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
@@ -134,6 +140,22 @@ export function Header() {
             >
               <ClipboardList className="h-4 w-4" />
               Resources
+            </Link>
+            <Link
+              href="/about"
+              className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-foreground hover:bg-secondary"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <Building2 className="h-4 w-4" />
+              About
+            </Link>
+            <Link
+              href="/contact"
+              className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-foreground hover:bg-secondary"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <User className="h-4 w-4" />
+              Contact
             </Link>
             <hr className="my-2 border-border" />
             <Link

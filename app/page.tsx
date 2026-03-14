@@ -55,12 +55,13 @@ export default function HomePage() {
         <section className="relative overflow-hidden bg-primary py-20 lg:py-32">
           <div className="absolute inset-0">
             <img
-              src="/images/hero-housing.jpg"
-              alt="Illinois Housing Community"
-              className="h-full w-full object-cover opacity-20"
+              src="/images/hero-house.jpg"
+              alt="Beautiful Illinois Home"
+              className="h-full w-full object-cover"
             />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
           </div>
-          <div className="absolute inset-0 bg-primary/80" />
           <div className="container relative mx-auto px-4">
             <div className="mx-auto max-w-3xl text-center">
               <h1 className="mb-6 text-4xl font-bold tracking-tight text-primary-foreground md:text-5xl lg:text-6xl text-balance">

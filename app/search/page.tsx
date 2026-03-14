@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
@@ -15,7 +15,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { mockProperties } from '@/lib/mock-data'
-import { Grid3X3, List, MapPin } from 'lucide-react'
+import { Grid3X3, List, MapPin, Loader2 } from 'lucide-react'
 import Link from 'next/link'
 
 const defaultFilters: SearchFiltersType = {
@@ -31,7 +31,7 @@ const defaultFilters: SearchFiltersType = {
   waitlistOpen: false,
 }
 
-export default function SearchPage() {
+function SearchPageContent() {
   const searchParams = useSearchParams()
   const [filters, setFilters] = useState<SearchFiltersType>(() => ({
     ...defaultFilters,
@@ -254,5 +254,28 @@ export default function SearchPage() {
 
       <Footer />
     </div>
+  )
+}
+
+function SearchLoading() {
+  return (
+    <div className="flex min-h-screen flex-col bg-background">
+      <Header />
+      <main className="flex-1 flex items-center justify-center">
+        <div className="text-center">
+          <Loader2 className="mx-auto h-8 w-8 animate-spin text-primary" />
+          <p className="mt-2 text-muted-foreground">Loading search...</p>
+        </div>
+      </main>
+      <Footer />
+    </div>
+  )
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={<SearchLoading />}>
+      <SearchPageContent />
+    </Suspense>
   )
 }

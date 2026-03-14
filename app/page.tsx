@@ -59,8 +59,8 @@ export default function HomePage() {
               alt="Beautiful Illinois Home"
               className="h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/50 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
           </div>
           <div className="container relative mx-auto px-4">
             <div className="mx-auto max-w-3xl text-center">

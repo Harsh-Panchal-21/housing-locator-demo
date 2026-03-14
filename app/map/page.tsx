@@ -285,18 +285,27 @@ export default function MapPage() {
                       onMouseEnter={() => setHoveredProperty(property.id)}
                       onMouseLeave={() => setHoveredProperty(null)}
                     >
-                      <div className="mb-2 flex items-start justify-between gap-2">
-                        <div>
-                          <h3 className="font-medium text-foreground line-clamp-1">
-                            {property.title}
-                          </h3>
-                          <p className="text-xs text-muted-foreground">
+                      <div className="mb-3 flex gap-3">
+                        <div className="relative h-20 w-24 flex-shrink-0 overflow-hidden rounded-lg bg-secondary">
+                          <img
+                            src={property.images[0] || '/images/property-1.jpg'}
+                            alt={property.title}
+                            className="h-full w-full object-cover"
+                          />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-start justify-between gap-2">
+                            <h3 className="font-medium text-foreground line-clamp-1">
+                              {property.title}
+                            </h3>
+                          </div>
+                          <p className="text-xs text-muted-foreground line-clamp-1">
                             {property.address}, {property.city}
                           </p>
+                          <p className="mt-1 text-lg font-bold text-primary">
+                            ${property.rent}/mo
+                          </p>
                         </div>
-                        <p className="whitespace-nowrap text-lg font-bold text-primary">
-                          ${property.rent}
-                        </p>
                       </div>
 
                       <div className="mb-2 flex items-center gap-3 text-xs text-muted-foreground">
@@ -436,11 +445,14 @@ export default function MapPage() {
                     <X className="h-4 w-4" />
                   </button>
 
-                  {/* Property Image Placeholder */}
+                  {/* Property Image */}
                   <div className="relative aspect-[16/9] overflow-hidden rounded-t-lg bg-secondary">
-                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/20 to-accent/20">
-                      <Building2 className="h-16 w-16 text-primary/40" />
-                    </div>
+                    <img
+                      src={selectedProperty.images[0] || '/images/property-1.jpg'}
+                      alt={selectedProperty.title}
+                      className="h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                     <div className="absolute left-3 top-3 flex gap-2">
                       {selectedProperty.status === 'available' && (
                         <Badge className="bg-green-600 text-white shadow-md">Available Now</Badge>

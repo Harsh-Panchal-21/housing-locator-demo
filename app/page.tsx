@@ -53,7 +53,14 @@ export default function HomePage() {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-primary py-20 lg:py-32">
-          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
+          <div className="absolute inset-0">
+            <img
+              src="/images/hero-housing.jpg"
+              alt="Illinois Housing Community"
+              className="h-full w-full object-cover opacity-20"
+            />
+          </div>
+          <div className="absolute inset-0 bg-primary/80" />
           <div className="container relative mx-auto px-4">
             <div className="mx-auto max-w-3xl text-center">
               <h1 className="mb-6 text-4xl font-bold tracking-tight text-primary-foreground md:text-5xl lg:text-6xl text-balance">

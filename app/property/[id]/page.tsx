@@ -76,14 +76,12 @@ export default function PropertyDetailPage({ params }: { params: Promise<{ id: s
             <div className="lg:col-span-2 space-y-6">
               {/* Image */}
               <div className="relative aspect-video overflow-hidden rounded-xl bg-muted">
-                <div className="absolute inset-0 flex items-center justify-center bg-secondary">
-                  <div className="text-center">
-                    <div className="mx-auto mb-4 flex h-24 w-24 items-center justify-center rounded-full bg-primary/10">
-                      <Building2 className="h-12 w-12 text-primary" />
-                    </div>
-                    <p className="text-lg text-muted-foreground">Property Image</p>
-                  </div>
-                </div>
+                <img
+                  src={property.images[0] || '/images/property-1.jpg'}
+                  alt={property.title}
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 <div className="absolute left-4 top-4 flex gap-2">
                   {property.status === 'available' && (
                     <Badge className="bg-green-600 text-white">Available</Badge>

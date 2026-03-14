@@ -11,16 +11,14 @@ interface PropertyCardProps {
 
 export function PropertyCard({ property }: PropertyCardProps) {
   return (
-    <Card className="overflow-hidden transition-shadow hover:shadow-lg">
-      <div className="relative aspect-video bg-muted">
-        <div className="absolute inset-0 flex items-center justify-center bg-secondary">
-          <div className="text-center">
-            <div className="mx-auto mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-              <MapPin className="h-8 w-8 text-primary" />
-            </div>
-            <p className="text-sm text-muted-foreground">Property Image</p>
-          </div>
-        </div>
+    <Card className="overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1 group">
+      <div className="relative aspect-video bg-muted overflow-hidden">
+        <img
+          src={property.images[0] || '/images/property-1.jpg'}
+          alt={property.title}
+          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
         <div className="absolute left-2 top-2 flex gap-1">
           {property.status === 'available' && (
             <Badge className="bg-green-600 text-white hover:bg-green-700">Available</Badge>

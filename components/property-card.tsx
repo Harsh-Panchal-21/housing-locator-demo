@@ -5,6 +5,13 @@ import { Button } from '@/components/ui/button'
 import { Property } from '@/lib/mock-data'
 import { Bed, Bath, Square, MapPin, Calendar, Users, DollarSign } from 'lucide-react'
 
+// Format date consistently to avoid hydration mismatch
+function formatAvailableDate(dateString: string): string {
+  const date = new Date(dateString + 'T00:00:00')
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+  return `${months[date.getMonth()]} ${date.getDate()}`
+}
+
 interface PropertyCardProps {
   property: Property
 }
@@ -58,7 +65,7 @@ export function PropertyCard({ property }: PropertyCardProps) {
           </span>
           <span className="flex items-center gap-1 text-sm text-muted-foreground">
             <Calendar className="h-4 w-4" />
-            Available {new Date(property.availableDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+            Available {formatAvailableDate(property.availableDate)}
           </span>
         </div>
 
